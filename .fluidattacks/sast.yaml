@@ -1,6 +1,7 @@
 namespace: juice-shop
 language: ES
 strict: true
+strictness_threshold: high
 output:
   file_path: results-sast.csv
   format: CSV
