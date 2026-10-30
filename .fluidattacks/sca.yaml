@@ -1,0 +1,6 @@
+namespace: juice-shop
+language: ES
+strict: false
+sca:
+  include:
+    - .
