@@ -26,6 +26,11 @@ jobs:
         with:
           name: resultados-sast
           path: results-sast.csv
+      - name: Romper el build si hay vulnerabilidades
+        if: steps.scan.outputs.vulnerabilities_found == 'true'
+        run: |
+          echo "Fluid Attacks encontró vulnerabilidades (modo estricto)"
+          exit 1
 
   sca:
     runs-on: ubuntu-latest
@@ -45,6 +50,11 @@ jobs:
         with:
           name: resultados-sca
           path: results-sca.csv
+      - name: Romper el build si hay vulnerabilidades
+        if: steps.scan.outputs.vulnerabilities_found == 'true'
+        run: |
+          echo "Fluid Attacks encontró vulnerabilidades (modo estricto)"
+          exit 1
 
   secrets:
     runs-on: ubuntu-latest
