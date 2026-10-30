@@ -19,6 +19,12 @@ jobs:
         with:
           scan_config_path: .fluidattacks/sast.yaml
           scanner_mode: full
+      - name: Subir CSV
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: resultados-sast
+          path: results-sast.csv
 
   sca:
     runs-on: ubuntu-latest
@@ -31,6 +37,12 @@ jobs:
         with:
           scan_config_path: .fluidattacks/sca.yaml
           scanner_mode: full
+      - name: Subir CSV
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: resultados-sast
+          path: results-sast.csv
 
   secrets:
     runs-on: ubuntu-latest
@@ -43,3 +55,9 @@ jobs:
         with:
           scan_config_path: .fluidattacks/ss.yaml
           scanner_mode: full
+      - name: Subir CSV
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: resultados-sast
+          path: results-sast.csv
