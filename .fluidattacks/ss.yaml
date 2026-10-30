@@ -1,5 +1,8 @@
 namespace: juice-shop
-strict: false
+strict: true
+output:
+  file_path: results-ss.csv
+  format: CSV
 ss:
   include:
     - .
