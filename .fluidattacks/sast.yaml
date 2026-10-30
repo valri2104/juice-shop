@@ -1,0 +1,9 @@
+namespace: juice-shop
+language: ES
+strict: false
+sast:
+  include:
+    - .
+  exclude:
+    - node_modules
+    - frontend/node_modules
