@@ -1,0 +1,7 @@
+namespace: juice-shop
+strict: false
+ss:
+  include:
+    - .
+  exclude:
+    - node_modules
