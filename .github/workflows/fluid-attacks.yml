@@ -15,6 +15,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: SAST
+        id: scan
         uses: fluidattacks/sast-action@main
         with:
           scan_config_path: .fluidattacks/sast.yaml
@@ -33,6 +34,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: SCA
+        id: scan
         uses: fluidattacks/sca-action@main
         with:
           scan_config_path: .fluidattacks/sca.yaml
@@ -51,6 +53,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: Secret Scan
+        id: scan
         uses: fluidattacks/ss-action@main
         with:
           scan_config_path: .fluidattacks/ss.yaml
@@ -61,3 +64,8 @@ jobs:
         with:
           name: resultados-ss
           path: results-ss.csv
+      - name: Romper el build si hay vulnerabilidades
+        if: steps.scan.outputs.vulnerabilities_found == 'true'
+        run: |
+          echo "Fluid Attacks encontró vulnerabilidades (modo estricto)"
+          exit 1
