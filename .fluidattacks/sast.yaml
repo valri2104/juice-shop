@@ -1,6 +1,9 @@
 namespace: juice-shop
 language: ES
-strict: false
+strict: true
+output:
+  file_path: results-sast.csv
+  format: CSV
 sast:
   include:
     - .
